@@ -1,0 +1,59 @@
+{
+  "name": "trae-roles-manager",
+  "displayName": "Trae Roles Manager",
+  "description": "Trae角色管理插件 - 快速切换预设prompt配置",
+  "version": "0.0.1",
+  "publisher": "trae",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "trae-rules-manager.showRolePanel",
+        "title": "Show Role Panel",
+        "category": "Trae Rules Manager"
+      }
+    ],
+    "configuration": {
+      "title": "Trae Rules Manager",
+      "properties": {
+        "trae-rules-manager.triggerChar": {
+          "type": "string",
+          "default": "@",
+          "description": "触发角色面板的字符"
+        },
+        "trae-rules-manager.debounceDelay": {
+          "type": "number",
+          "default": 300,
+          "description": "防抖延迟时间(ms)"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run package",
+    "compile": "webpack",
+    "watch": "webpack --watch",
+    "package": "webpack --mode production --devtool hidden-source-map",
+    "lint": "eslint src --ext ts"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.85.0",
+    "@types/node": "^20.10.0",
+    "@typescript-eslint/eslint-plugin": "^6.13.1",
+    "@typescript-eslint/parser": "^6.13.1",
+    "eslint": "^8.54.0",
+    "typescript": "^5.3.2",
+    "webpack": "^5.89.0",
+    "webpack-cli": "^5.1.4",
+    "ts-loader": "^9.5.1"
+  }
+}
